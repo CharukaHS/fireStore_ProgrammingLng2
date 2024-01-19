@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-success-subtle">
+<div class="container my-5">
+    <h2 class="text-center">Programming Languages</h2>
+
+    <table class="programmingLng table table-primary table-striped-columns">
+    </table>
+
+    <form class="addProgrammForm">
+        <label for="name">Enter Programm Name</label>
+        <input type="text" class="form-control m-4" name="designed_by" id="designed_by">
+
+        <label for="designed_by">Enter Designer Name</label>
+        <input type="text" class="form-control m-4" name="name" id="name">
+
+        <label for="invented_year">Enter Invented Year</label>
+        <input type="text" class="form-control m-4" name="invented_year" id="invented_year">
+
+        <button type="submit" class="btn btn-success"> Submit </button>
+    </form>
+
+    <div class="container delForm my-4">
+        <form class="deleteForm">
+
+            <label for="delId">Enter Id</label>
+            <input type="text" name="delId" id="delId">
+
+            <button type="submit" class="btn btn-danger"> Delete Form </button>
+        </form>
+    </div>
+
+
+<script type="module" src="./script.js"></script>
+</body>
+</html>
