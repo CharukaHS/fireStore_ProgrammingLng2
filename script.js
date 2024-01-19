@@ -14,6 +14,7 @@
   const table = document.querySelector('.programmingLng')
   const programmForm = document.querySelector('.addProgrammForm')
   const delForm = document.querySelector('.deleteForm')
+  // const delBtn = document.querySelector('.delBtn')
 
 
   const app = initializeApp(firebaseConfig);
@@ -56,12 +57,24 @@
                       <td>${doc.name}</td>
                       <td>${doc.designed_by}</td>
                       <td>${doc.invented_year}</td>
-                      <td><button type="submit" class="delBtn">x</button></td>
+                      <td><button type="submit" class="delBtn" id="${doc.id}">x</button></td>
                                           
                     </tr>
                     </tBody>`
 
                    table.innerHTML += html
+      const delBtn = document.getElementById(doc.id)
+
+      // console.log(delBtn);
+      delBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const delRef = doc.delBtn
+        deleteDoc(delRef).then(() => {
+          docList.remove();
+        })
+
+      })
     })
 
   }
@@ -78,16 +91,4 @@
       programmForm.reset();
 
     })
-  })
-
-  delForm.addEventListener('submit', (e) =>{
-    e.preventDefault();
-
-    const delId = delForm.delId.value
-
-    const delRef = doc(db, 'programming languages', delId);
-    deleteDoc(delRef).then(() => {
-      delForm.reset();
-    })
-
   })
